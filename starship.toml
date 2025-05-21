@@ -1,66 +1,88 @@
 palette = "catppuccin_mocha"
-command_timeout = 10000
+command_timeout = 3000
 
 [username]
 format = "[$user]($style)@"
 show_always = true
-style_root = "bold blue"
+style_root = "bold red"
 style_user = "bold blue"
 
 [hostname]
 disabled = false
 format = "[$hostname]($style) in "
 ssh_only = false
-style = "bold dimmed blue"
+style = "dimmed lavender"
 trim_at = "-"
 
 [directory]
-style = "purple"
-truncate_to_repo = false
-truncation_symbol = "repo: "
+style = "mauve"
+read_only = " "
+truncation_length = 4
+truncate_to_repo = true
+truncation_symbol = "repo:/"
+home_symbol = "~"
 
 [sudo]
 disabled = false
 style = "bold red"
-symbol = "root "
+symbol = " "
+
+[git_branch]
+symbol = " "
+style = "bold lavender"
 
 [git_status]
-ahead = " ${count}"
-behind = " ${count}"
-deleted = "x"
-diverged = " ${ahead_count} ${behind_count}"
-style = "white"
+style = "dimmed sky"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕ ⇡${ahead_count} ⇣${behind_count}"
+deleted = "✖"
+modified = "✱"
+staged = "●"
+untracked = "…"
 
 [cmd_duration]
 disabled = false
+min_time = 500
 format = "took [$duration]($style)"
-min_time = 3
+style = "bold peach"
 
 [battery]
 charging_symbol = ""
 discharging_symbol = ""
 full_symbol = ""
+
 [[battery.display]]
-style = "bold blue"
 threshold = 15
+style = "bold red"
+
+[[battery.display]]
+threshold = 50
+style = "bold peach"
+
+[[battery.display]]
+threshold = 80
+style = "bold green"
 
 [time]
-disabled = true
-format = " 🕙 $time($style)\n"
-style = "bright-white"
-time_format = "%T"
+disabled = false
+format = "🕒 [$time]($style)"
+style = "dimmed subtext1"
+time_format = "%H:%M:%S"
 
 [character]
-error_symbol = "[](bold blue)"
-success_symbol = "[](bold blue)"
+error_symbol = "[❯](red)"
+success_symbol = "[❯](blue)"
 
 [status]
-disabled = true
-format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+disabled = false
+format = '[\[$symbol$status\]]($style) '
+symbol = "✖"
+style = "bold red"
 map_symbol = true
 pipestatus = true
-symbol = "🔴"
 
+# Language & Runtime Symbols
 [aws]
 symbol = " "
 [conda]
@@ -68,17 +90,16 @@ symbol = " "
 [dart]
 symbol = " "
 [docker_context]
-symbol = " "
+symbol = " "
+style = "blue"
 [elixir]
 symbol = " "
 [elm]
 symbol = " "
-[git_branch]
-symbol = " "
 [golang]
 symbol = " "
 [hg_branch]
-symbol = " "
+symbol = " "
 [java]
 symbol = " "
 [julia]
@@ -88,7 +109,8 @@ symbol = " "
 [nix_shell]
 symbol = " "
 [nodejs]
-symbol = " "
+symbol = " "
+style = "green"
 [package]
 symbol = " "
 [perl]
@@ -96,11 +118,13 @@ symbol = " "
 [php]
 symbol = " "
 [python]
-symbol = " "
+symbol = " "
+style = "yellow"
 [ruby]
 symbol = " "
 [rust]
-symbol = " "
+symbol = " "
+style = "red"
 [swift]
 symbol = " "
 
