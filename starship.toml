@@ -65,7 +65,7 @@ threshold = 80
 style = "bold green"
 
 [time]
-disabled = false
+disabled = true
 format = "🕒 [$time]($style)"
 style = "dimmed subtext1"
 time_format = "%H:%M:%S"
